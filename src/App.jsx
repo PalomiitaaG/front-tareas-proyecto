@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './index.css'
 import Formulario from './Formulario'
+import Tarea from './Tarea'
 
 function App() {
   let [tareas, setTareas] = useState([])
@@ -39,7 +40,7 @@ function App() {
         setTareas(tareas => 
           tareas.map(tarea => {
             if (tarea.id === id) {
-              return { ...tarea, completada: !tarea.completada };
+              return { ...tarea, terminada: !tarea.terminada };
             }
             return tarea;
           })
@@ -48,19 +49,26 @@ function App() {
     })
   }
 
+  function editarTexto(nuevaTarea){
+    setTareas(tareas.map(tarea => {
+      if(tarea.id === nuevaTarea.id){
+        return { ...tarea, tarea : nuevaTarea.tarea, terminada : nuevaTarea.terminada}
+      }
+      return tarea
+    }))
+  }
+
   return (
     <>
       <Formulario  crearTarea={crearTarea} />
       <section className='tareas'>
-        {tareas.map(tarea => (
-          <div key={tarea.id} className='tarea'>
-            <h2 className='visible'>{tarea.tarea}</h2>
-            <input type="text" defaultValue="Aprender React" />
-            <button className='boton'>Editar</button>
-            <button className='boton' onClick={() => borrarTarea(tarea.id)}>Borrar</button>
-            <button className={`estado ${tarea.completada ? "terminada" : null}`} onClick={() => toggleEstado(tarea.id)}><span></span></button>
-          </div>
-        ))}
+        { tareas.length > 0 ? tareas.map(tarea => <Tarea key={tarea.id}
+                                    id={tarea.id}
+                                    tarea={tarea.tarea}
+                                    terminada={tarea.terminada}
+                                    borrarTarea={borrarTarea}
+                                    toggleEstado={toggleEstado}
+                                    editarTexto={editarTexto} />) : <p>No hay Tareas</p>}
       </section>
     </>
   )

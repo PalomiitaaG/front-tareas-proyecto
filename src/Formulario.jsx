@@ -16,6 +16,7 @@ function Formulario({crearTarea}){
             .then(({id}) => {
                 if(id){
                     crearTarea({tarea : textoTemporal, terminada : false, id})
+                    console.log(id)
                     return setTextoTemporal("")
                 }
                 console.log("error")
