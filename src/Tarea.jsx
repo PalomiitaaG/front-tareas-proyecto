@@ -6,7 +6,6 @@ function Tarea({id,tarea,terminada,borrarTarea,toggleEstado,editarTexto}){
     let [nuevaTarea, setNuevaTarea] = useState(tarea)  
 
     let guardar = () => {
-        setEditando(false)
         fetch(`http://localhost:3000/api-todo/actualizar/${id}/1`, {
             method : "PUT",
             body : JSON.stringify({ tarea : nuevaTarea}),
@@ -16,6 +15,8 @@ function Tarea({id,tarea,terminada,borrarTarea,toggleEstado,editarTexto}){
         .then(({resultado}) => {
             if(resultado === "ok"){
                 editarTexto({tarea : nuevaTarea, terminada : false, id})
+                setNuevaTarea(nuevaTarea)
+                setEditando(false)
               }
           })
       }
