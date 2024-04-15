@@ -18,8 +18,7 @@ body{
   color: white;
 }
 form{
-  padding: 20px;
-  border-bottom: 1px dashed #999;
+  padding: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,6 +47,23 @@ form input[type="submit"]{
   border-radius: 10px;
   margin-top: 20px;
 }
+.info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bombilla{
+  margin-right: 0.5em;
+  color: #7d82a6;
+}
+
+p{
+  text-align: center;
+  font-size: 0.8em;
+  font-weight: 300;
+  color: #7d82a6;
+}
+
 .tareas{
   width: 600px;
   margin: 20px auto 0;
@@ -62,15 +78,18 @@ form input[type="submit"]{
   flex-wrap: wrap;
   align-items: center;
   background-color: #424769;
-  
+  cursor: grab;
 }
-.tarea h2, .tarea input{
+
+.tarea h2, .tarea input {
   font-size: 1.8em;
   width: 100%;
   font-weight: normal;
   display: none;
-  
-  
+  margin-bottom: 0.5em;
+  background-color: #2d3250;
+  border-radius: 0.5em;
+  padding: 0.3em 0 0.3em 0.5em;
 }
 .tarea input{
   border: none;
@@ -82,21 +101,39 @@ form input[type="submit"]{
 .tarea .visible{
   display: block;
 }
-.boton{
+.opciones{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icono-drag{
+  color: #2d3250;
+  font-size: 1.5em;
+  padding-left: 0.3em;
+}
+
+.botones{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.boton {
   background-color: #ffa247;
   border: none;
-  color: black;
-  padding: 15px;
-  border-radius: 10px;
-  margin-top: 20px;
-  margin-right: 20px;
+  color: #282e31;
+  padding: 8px;
+  border-radius: 0.5em;
+  margin-right: 0.6em;
+  background-position: center;
+  font-size: 1em;
 }
 .estado{
   width: 50px;
   height: 20px;
   border-radius: 10px;
   background-color: #2d3250;
-  margin-top: 20px;
   border: none;
   position: relative;
 }
