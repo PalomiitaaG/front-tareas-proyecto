@@ -9,7 +9,7 @@ function Formulario({crearTarea}){
             evento.preventDefault()
 
             //hacemos la conexión post a la bbdd en que le pasamos el texto temporal para que lo añada a la tarea.
-            fetch("http://localhost:3000/api-todo/crear", {
+            fetch("https://api-tareas-proyecto.onrender.com/api-todo/crear", {
                 method : "POST",
                 body : JSON.stringify({ tarea : textoTemporal }),
                 headers : { "Content-type" : "application/json"}

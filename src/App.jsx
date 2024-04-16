@@ -11,7 +11,7 @@ function App() {
 
   //hace la conexión principal a la api para que traigan las tareas.
   useEffect(() => {
-    fetch("http://localhost:3000/api-todo")
+    fetch("https://api-tareas-proyecto.onrender.com/api-todo")
     .then(respuesta => respuesta.json())
     .then(tareas => setTareas(tareas))
   },[])
@@ -23,7 +23,7 @@ function App() {
 
   //creamos la función de borrar Tarea, con el id hacemos una conexion a la base de datos y hacemos un filtro con el resto de las tareas menos  a la que le hemos hecho click.
   function borrarTarea(id){
-    fetch(`http://localhost:3000/api-todo/borrar/${id}`, {
+    fetch(`https://api-tareas-proyecto.onrender.com/api-todo/borrar/${id}`, {
       method : "DELETE"
     })
     .then(respuesta => respuesta.json())
@@ -37,7 +37,7 @@ function App() {
   
   //creamos una función de Toggle del estado.
   function toggleEstado(id){
-    return fetch(`http://localhost:3000/api-todo/actualizar/${id}/2`, { //hacemos una conexión a la bbdd con el id y con la operacion 2 que es la que le indica a la base de datos que es el toggle.
+    return fetch(`https://api-tareas-proyecto.onrender.com/api-todo/actualizar/${id}/2`, { //hacemos una conexión a la bbdd con el id y con la operacion 2 que es la que le indica a la base de datos que es el toggle.
       method : "PUT"
     })
     .then(respuesta => respuesta.json())

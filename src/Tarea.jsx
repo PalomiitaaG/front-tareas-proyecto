@@ -11,7 +11,7 @@ function Tarea({id,tarea,terminada,borrarTarea,toggleEstado,editarTexto}){
     let [nuevaTarea, setNuevaTarea] = useState(tarea) //crea un estado con un valor inicial igual al valor de la tarea actual.
 
     let guardar = () => { //definimos una función guardar, que se utiliza para guardar los cambios realizados en una tarea después de editarla.
-        fetch(`http://localhost:3000/api-todo/actualizar/${id}/1`, { //hacemos la solicitud post con el id y con la operación 1 que es la de editar el texto.
+        fetch(`https://api-tareas-proyecto.onrender.com/api-todo/actualizar/${id}/1`, { //hacemos la solicitud post con el id y con la operación 1 que es la de editar el texto.
             method : "PUT",
             body : JSON.stringify({ tarea : nuevaTarea}), //incluye el campo "tarea", que se establece en el valor de la variable de estado "nuevaTarea"
             headers : {"Content-type" : "application/json"}
