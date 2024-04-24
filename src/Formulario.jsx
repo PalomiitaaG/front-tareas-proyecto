@@ -24,7 +24,7 @@ function Formulario({crearTarea}){
             })
         }}>
             <input type="text" placeholder="¿Qué hay que hacer?" value={textoTemporal} onChange={evento => setTextoTemporal(evento.target.value)} /> 
-            <input type="submit" value="crear tarea" />
+            <input type="submit" value="Crear tarea" />
         </form>
     ) //El input text en el que el valor equivaldrá al texto temporal. 
 }
